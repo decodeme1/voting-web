@@ -1,0 +1,14 @@
+.input {
+  margin-bottom: 16px;
+}
+.card {
+  width: 450px;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 350px;
+  }
+}
+.p-button {
+  width: 200px!important;
+}

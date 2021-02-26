@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div fxLayout="row" fxLayoutAlign="center center" style="background-color: #0e242f; height: 100vh;">
+  <p-card [header]="creatingNewUser ? 'Cadastro' : 'Autenticação'" [subheader]="!creatingNewUser ? 'Acessar sua conta' : 'Cadastrar novo usuário'"
+          class="card"
+          styleClass="p-card-shadow">
+
+    <div fxLayout="column" fxLayoutAlign="space-between stretch">
+
+      <div fxFlex class="input">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text"
+                 pInputText
+                 placeholder="E-mail"
+                 [(ngModel)]="user.email">
+        </div>
+      </div>
+
+      <div fxFlex>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input type="password"
+                 pInputText
+                 placeholder="Senha"
+                 [(ngModel)]="user.password">
+        </div>
+      </div>
+
+      <div fxFlex>
+        <div class="p-inputgroup" *ngIf="creatingNewUser" style="margin-top: 16px">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input type="password"
+                 pInputText
+                 placeholder="Confirmar senha"
+                 [(ngModel)]="user.confirmPassword">
+        </div>
+      </div>
+
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div fxLayout="row" fxLayoutAlign="center end" style="margin-bottom: 10px" *ngIf="creatingNewUser">
+        <button pButton label="Cadastrar" (click)="register()"></button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center end" style="margin-bottom: 10px" *ngIf="!creatingNewUser">
+<!--        <button pButton label="Entrar" (click)="login()"></button>-->
+        <button pButton label="Entrar" routerLink="/voting"></button>
+      </div>
+      <div fxLayoutAlign="center end" style="margin-top: 21px; margin-bottom: 21px">
+        <span><a href="javascript:void(0);" (click)="creatingNewUser = !creatingNewUser"> {{creatingNewUser ? "ou fazer login" : "ou cadastre-se"}} </a></span>
+      </div>
+    </ng-template>
+
+  </p-card>
+
+</div>

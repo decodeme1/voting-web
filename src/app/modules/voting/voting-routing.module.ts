@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import {Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
-
+import {VotingFormComponent} from './voting-form/voting-form.component';
+import {VotingListComponent} from './voting-list/voting-list.component';
 
 const routes: Routes = [
 
-  { path: '', component: LoginComponent },
-  { path: '', component: LoginComponent }
+  { path: '', component: VotingFormComponent },
+  { path: 'votes', component: VotingListComponent }
 
 ];
 
